@@ -1,9 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
-// import { signup } from "./utils/session_api_util"
+import configureStore from "./store/store";
+import Root from "./components/root";
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    //--------------------------//
+    const store = configureStore();
+    // we don't put the store directly on the window because
+    // it can be confusing when debugging, sometimes giving you access to state
+    // when you shouldn't
+    window.getState = store.getState;
+    window.dispatch = store.dispatch; // just for testing!
+    //-------------------------------//
+
     const root = document.getElementById("root");
-    // window.signup = signup
-    ReactDOM.render(<h1>Thiscord 101</h1>, root);
+    ReactDOM.render(<Root store={store} /> , root);
 });
