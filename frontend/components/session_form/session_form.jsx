@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 class SessionForm extends React.Component {
     constructor(props){
@@ -8,11 +10,14 @@ class SessionForm extends React.Component {
             password: ''
         };
 
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.demoUser = this.demoUser.bind(this);
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        conset user = Object.assign({}, this.state);
+        const user = Object.assign({}, this.state);
+        this.props.processForm(user);
     }
 
     update(field) {
@@ -21,28 +26,43 @@ class SessionForm extends React.Component {
         });
     }
 
+    demoUser(){
+        this.setState({
+            email:"demo@demo.demo",
+            password:"password"
+        });
+
+        setTimeout(
+            () => {
+                return this.props.processForm(this.state);
+            }, 10);
+    }
+
     render(){
         return(
-            <div>
+            <div className="signup-login">
                 <form onSubmit={this.handleSubmit}>
-                    hello
-                    <br/>
+                    <h3>Welcome back!</h3>
+                    <h4>We're so excited to see you again!</h4>
                     <label>
-                        Email:
+                        EMAIL
                         <input type="text"
                             value = {this.state.email}
                             onChange = {this.update('email')} 
                         />
                     </label>
                     <label>
-                        Password:
+                        PASSWORD
                         <input type="text"
                             value = {this.state.password}
                             onChange = {this.update('password')} 
                         />
                     </label>
-                    <input type="submit" value = "Log In" />
+                    <input type="submit" value = "Login" />
+                    <span>Need an account?</span>
+                    <Link to="/signup">Register</Link>
                 </form>
+                <button onClick= {this.demoUser}>DEMO</button>
             </div>
         );
     }

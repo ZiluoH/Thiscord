@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+    margin: 0;
+    background-image: url("https://discordapp.com/assets/fd91131ea693096d6be5e8aa99d18f9e.jpg");
+}
+
+ #root {
+     width: auto;
+ }
+
+ .signup-login{
+     width: 480px;
+     margin: auto;
+     padding: 40px;
+     background-color: #36393f;
+     border-radius: 5px;
+     box-sizing: border-box;
+     box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .2);
+ }

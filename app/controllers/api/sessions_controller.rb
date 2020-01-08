@@ -1,12 +1,12 @@
-class Api::SessionController < ApplicationController
+class Api::SessionsController < ApplicationController
     def create
-        @user = User.find_by_credentials(params[:user][:Email], params[:user][:password])
+        @user = User.find_by_credentials(params[:user][:email], params[:user][:password])
 
         if @user
-            login(@user)
+            login!(@user)
             render "api/users/show"
         else
-            render json: ["Email and password does not match"], status: 401
+            render json: ["Email and Password does not match"], status: 401
         end
     end
 
