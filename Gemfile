@@ -36,7 +36,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'jquery-rails'
-
 gem 'faker'
 
 group :development, :test do
