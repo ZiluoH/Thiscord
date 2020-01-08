@@ -18,4 +18,4 @@ User.destroy_all
 # user7 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
 # user8 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
 # user9 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
-demo = User.create(username: "Demo Boy", email: "demo@demo.demo", password: 'password')
+demo = User.create(username: "Demo Boy2", email: "demo@demo.demo", password: 'password')
