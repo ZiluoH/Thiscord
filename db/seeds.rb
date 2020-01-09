@@ -9,13 +9,13 @@ require 'faker'
 
 User.destroy_all
 
-# user1 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
-# user2 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
-# user3 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
-# user4 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
-# user5 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
-# user6 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
-# user7 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
-# user8 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
+user1 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
+user2 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
+user3 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
+user4 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
+user5 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
+user6 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
+user7 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
+user8 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
 user9 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
 demo = User.create(username: "Demo Boy", email: "demo@demo.demo", password: 'password')
