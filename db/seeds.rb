@@ -8,14 +8,31 @@
 require 'faker'
 
 User.destroy_all
+Server.destroy_all
+ServerMembership.destroy_all
 
+demo = User.create(username: "Demo Boy", email: "demo@demo.demo", password: 'password')
 user1 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
 user2 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
 user3 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
 user4 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
-user5 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
-user6 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
-user7 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
-user8 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
-user9 = User.create(username: Faker::Name.name, email: Faker::Internet.email, password: 'password')
-demo = User.create(username: "Demo Boy", email: "demo@demo.demo", password: 'password')
+
+server1 = Server.create(name: Faker::Company.name, admin_id: demo.id)
+server2 = Server.create(name: Faker::Company.name, admin_id: demo.id)
+server3 = Server.create(name: Faker::Company.name, admin_id: user1.id)
+server4 = Server.create(name: Faker::Company.name, admin_id: user2.id)
+
+ServerMembership.create(server_id: server1.id, user_id: demo.id)
+ServerMembership.create(server_id: server1.id, user_id: user1.id)
+ServerMembership.create(server_id: server1.id, user_id: user2.id)
+ServerMembership.create(server_id: server1.id, user_id: user3.id)
+ServerMembership.create(server_id: server1.id, user_id: user4.id)
+
+ServerMembership.create(server_id: server2.id, user_id: demo.id)
+ServerMembership.create(server_id: server2.id, user_id: user1.id)
+ServerMembership.create(server_id: server2.id, user_id: user3.id)
+
+ServerMembership.create(server_id: server4.id, user_id: user2.id)
+ServerMembership.create(server_id: server4.id, user_id: user3.id)
+ServerMembership.create(server_id: server4.id, user_id: user4.id)
+
