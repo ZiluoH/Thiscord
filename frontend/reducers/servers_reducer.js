@@ -1,13 +1,20 @@
-import { RECEIVE_SERVERS } from '../actions/servers_actions';
+import { RECEIVE_SERVERS,
+        RECEIVE_SERVER,
+        RECEIVE_SERVER_MEMBERSHIP
+        } from '../actions/servers_actions';
 
-const serversReducer = (state = {}, action) => {
-    Object.freeze(state);
+const serversReducer = (oldState = {}, action) => {
+    Object.freeze(oldState);
 
     switch(action.type){
         case RECEIVE_SERVERS:
-            return Object.assign({}, state, action.servers.JoinedServer);
+            return Object.assign({}, oldState, action.servers);
+        case RECEIVE_SERVER:
+            return Object.assign({}, action.server);
+        case RECEIVE_SERVER_MEMBERSHIP:
+            return Object.assign({}, action.server_membership);
         default:
-            return state;
+            return oldState;
     }
 }
 

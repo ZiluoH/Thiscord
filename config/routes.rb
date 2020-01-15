@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show]
     resource :session, only: [:create, :destroy, :show]
     resources :servers, only: [:create, :index, :destroy]
+    resources :server_memberships, only: [:create, :destroy]
   end
 
   root to: 'root#root'

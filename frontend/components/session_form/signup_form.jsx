@@ -42,7 +42,12 @@ class SignupForm extends React.Component {
 
     render() {
         return (
-            <div className="signup-login">
+            <div className="auth-container">
+                <div className="auth-container-header">
+                    <i className="fab fa-discord"></i>
+                    <span>THISCORD</span>
+                </div>
+                <div className="signup-login">
                 <form onSubmit={this.handleSubmit} className="auth-form">
                     <h3 className="auth-form-title">Create an account</h3>
                     {this.renderErrors()}
@@ -74,6 +79,7 @@ class SignupForm extends React.Component {
                         <Link to="/login" className="auth-form-switch">Already have an account?</Link>
                     </div>
                 </form>
+            </div>
             </div>
         );
     }

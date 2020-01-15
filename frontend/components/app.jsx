@@ -7,7 +7,6 @@ import HomepageContainer from '../homepage/homepage_container';
 
 const App = () => (
     <div className="app">
-        <h1>Welcome to Thiscord</h1>
         <Switch>
             <AuthRoute path="/login" component={LoginFormContainer} />
             <AuthRoute path="/signup" component={SignupFormContainer} />

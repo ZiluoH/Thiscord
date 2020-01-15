@@ -20,7 +20,7 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.processForm(user);
+        this.props.processForm(user);        
     }
 
     update(field) {
@@ -55,8 +55,12 @@ class SessionForm extends React.Component {
 
     render(){
         return(
-            <div className="signup-login">
-
+            <div className="auth-container">
+                <div className="auth-container-header">
+                    <i className="fab fa-discord"></i>
+                    <span>THISCORD</span>
+                </div>
+                <div className="signup-login">
                 <form onSubmit={this.handleSubmit} className="auth-form">
                     <h3 className="auth-form-title">Welcome back!</h3>
                     <h4 className="auth-form-subtitle">We're so excited to see you again!</h4>
@@ -84,6 +88,7 @@ class SessionForm extends React.Component {
                         <button onClick= {this.demoUser} className="auth-form-demo">DEMO</button>
                     </div>
                 </form>
+            </div>
             </div>
         );
     }
