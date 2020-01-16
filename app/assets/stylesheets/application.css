@@ -20,8 +20,13 @@ body, html, #root, .app, .user-homepage {
     font-family: 'Roboto', sans-serif;
 }
 
+.app{
+    display: flex;
+}
+
 .auth-container{
     height: 100%;
+    width: 100%;
     background-image: url("https://discordapp.com/assets/fd91131ea693096d6be5e8aa99d18f9e.jpg");
  }
 
@@ -395,3 +400,55 @@ h6,
 }
 
 /* ----------------- end server modal -----------------*/
+
+/* ----------------- channels -----------------*/
+.channels-section{
+    height: 100%;
+    width: 232px;
+    background-color: #2f3136;
+}
+
+.current-server-name{
+    cursor: pointer;
+    height: 40px;
+    font-weight: 600;
+    color: #fff;
+    font-size: 18px;
+    border-bottom: 0.8px solid black;
+    padding-top: 15px;
+    padding-left: 16px;
+    text-transform: uppercase;
+}
+
+.channels-list-header{
+    color: #dcddde;
+    text-transform: uppercase;
+    font-size: 13px;
+    user-select: none;
+    padding-left: 17px;
+}
+
+.channel{
+    list-style: none;
+    color: #dcddde;
+    user-select: none;
+    cursor: pointer;
+    /* background-color: #4f545c52; */
+    height: 32px;
+    width: 200px;
+    box-sizing: border-box;
+    padding: 0 8px;
+    margin: 1px 0 1px 8px;
+    border-radius: 4px;
+    display: flex;
+    line-height: 29px;
+    font-size: 16px;
+}
+
+.channel:hover{
+    background-color: #34373c;
+}
+
+.channels-list{
+    padding: 0;
+}

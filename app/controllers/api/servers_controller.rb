@@ -15,11 +15,14 @@ class Api::ServersController < ApplicationController
     end
 
     def index
-        @joined_servers = Server.joins(:memberships)
+        if current_user
+            @joined_servers = Server.joins(:memberships)
                                 .select("server_memberships.*,servers.*")
                                 .where("server_memberships.user_id = ? ", current_user.id)
-        # render json: @joined_servers
-        render "api/servers/index"
+            render "api/servers/index"
+        else 
+            render json: ["Login first"]
+        end
     end
 
 
