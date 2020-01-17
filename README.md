@@ -1,24 +1,24 @@
-# README
+# THISCORD
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## Overview
+Thiscord is a clone of Discord. Users are able to create and join servers, create text channels within servers, and message each other through text channels.
 
-* Ruby version
+## Technologies
+Thiscord was built using React/Redux for the frontend and Ruby on Rails and PostgreSQL for the backend. ActionCables were used to implement the live chat features.
 
-* System dependencies
+## Features
 
-* Configuration
+### Servers
+Users can create a new server and the user is the admin of that server
+Servers are created with default "general" text channels
+Users can join an existing server
 
-* Database creation
+### Channels
+Users can create text channels in servers they joined
+Server members can chat with each other inside of text channels
 
-* Database initialization
+### Chat
+Users can chat via text channel in real time
+All new messages will be sent to all users of that text channel in real time
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
