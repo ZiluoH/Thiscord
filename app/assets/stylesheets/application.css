@@ -543,7 +543,7 @@ h6,
 
 .user-info{
     position: absolute;
-    width: 176px;
+    width: 152px;
     background-color: #292b2f;
     bottom: 0;
     padding: 11px 28px;
@@ -558,4 +558,54 @@ h6,
     color: #b9bbbe;
     font-size: 12px;
 
+}
+
+/* ----------------- chatroom -----------------*/
+.chatroom-container{
+    width: 100%;
+}
+
+.chatroom-title{
+    box-sizing: border-box;
+    height: 55.8px;
+    border-bottom: 1px solid black;
+    color: #fff;
+    font-size: 16px;
+    line-height: 51px;
+    padding-left: 20px;
+    user-select: none;
+}
+
+.message-form{
+    position: absolute;
+    bottom: 0;
+    margin-left: 30px;
+    box-sizing: border-box;
+    height: 95px;
+    width: 80%;
+}
+
+.message-form-input{
+    width: 80%;
+    font-size: 20px;
+    padding: 12px 12px 12px 29px;
+    border-radius: 15px;
+    border: none;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.message-form-input:focus{
+    outline: none;
+}
+
+.message-list{
+    padding: 50px 40px;
+}
+
+.message{
+    list-style: none;
+    color: #fff;
+    font-size: 20px;
+    padding-top: 10px;
 }
