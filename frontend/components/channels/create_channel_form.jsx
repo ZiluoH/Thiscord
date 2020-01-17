@@ -22,8 +22,6 @@ class CreateChannelForm extends React.Component {
     }
 
     render() {
-        console.log(this);
-        
         return (
             <form className="create-channel-form">
                 <h4 className="create-channel-form-title">CREATE TEXT CHANNEL</h4>

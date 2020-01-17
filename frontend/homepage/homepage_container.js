@@ -3,10 +3,9 @@ import { logout } from '../actions/session_actions';
 import Homepage from './homepage';
 
 const mSTP = ({ session, entities: { users } }, ownProps) => {
-    // console.dir(ownProps)
+
     return {
         currentUser: users,
-        // ownProps: ownProps
     }
 }
 
