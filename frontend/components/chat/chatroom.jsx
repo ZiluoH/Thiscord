@@ -1,6 +1,5 @@
 import React from "react";
 import MessageForm from "./message_form";
-import Messages from "./messages"
 
 class ChatRoom extends React.Component {
     constructor(props) {
@@ -68,7 +67,6 @@ class ChatRoom extends React.Component {
                     onClick={this.loadChat.bind(this)}>
                     Load Chat History
                 </button> */}
-                <Messages />
                 <div className="message-list">{messageList}</div>
                 <MessageForm user={users} currentChannel={channels[currentChannelId]} />
             </div>
