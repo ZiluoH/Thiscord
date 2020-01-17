@@ -22,6 +22,7 @@ body, html, #root, .app, .user-homepage {
 
 .app{
     display: flex;
+    background-color: #36393f;
 }
 
 .auth-container{
@@ -425,12 +426,20 @@ h6,
     text-transform: uppercase;
     font-size: 13px;
     user-select: none;
-    padding-left: 17px;
+    padding:0 17px;
+}
+
+.channels-list-header i{
+    float: right;
+}
+
+.channels-list-header i:hover{
+    cursor: pointer;
 }
 
 .channel{
-    list-style: none;
-    color: #dcddde;
+    text-decoration: none;
+    color: #72767d;
     user-select: none;
     cursor: pointer;
     /* background-color: #4f545c52; */
@@ -446,9 +455,107 @@ h6,
 }
 
 .channel:hover{
+    color: aquamarine;
     background-color: #34373c;
 }
 
 .channels-list{
     padding: 0;
+}
+
+.channel-modal{
+    position: relative;
+    margin: 10% auto;
+    width: 540px;
+    height: 420px;
+    border-radius: 5px;
+}
+
+.channel-modal:focus{
+    outline: none;
+}
+
+.channel-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.create-channel-form{
+    background-color: #36393f;
+    width: 400px;
+    height: 190px;
+    padding: 10px 20px 40px 20px;
+}
+
+.create-channel-form-title{
+    color: #fff;
+}
+
+.create-channel-form-input-title{
+    color: #8e9297;
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+.channel-form-input{
+    width: 100%;
+    padding: 10px;
+    height: 40px;
+    box-sizing: border-box;
+    font-size: 16px;
+    border-radius: 3px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .1);
+    border: 1px solid rgba(0, 0, 0, .1);
+    margin:10px 0;
+}
+
+.create-channel-btn{
+    color: #fff;
+    background-color: #7289da;
+    width: auto;
+    float: right;
+    height: 38px;
+    border-radius: 3px;
+    font-size: 15px;
+    padding: 2px 16px;
+    cursor: pointer;
+    border: none;
+    margin-top: 10px;
+}
+
+.channel-modal-close{
+    color: white;
+    position: absolute;
+    top: 172px;
+    left: 155px;
+    padding: 10px;
+}
+
+.channel-modal-close:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.user-info{
+    position: absolute;
+    width: 176px;
+    background-color: #292b2f;
+    bottom: 0;
+    padding: 11px 28px;
+}
+
+.user-info-username{
+    color: #fff;
+    font-size: 14px;
+}
+
+.user-info-id{
+    color: #b9bbbe;
+    font-size: 12px;
+
 }

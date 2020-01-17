@@ -37,6 +37,7 @@ class ServersIndex extends React.Component {
     
     render(){
         const{users, servers} = this.props.servers.entities
+    
         
         return(
            

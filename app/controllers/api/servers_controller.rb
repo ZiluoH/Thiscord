@@ -20,6 +20,7 @@ class Api::ServersController < ApplicationController
                                 .select("server_memberships.*,servers.*")
                                 .where("server_memberships.user_id = ? ", current_user.id)
             render "api/servers/index"
+            # render json: @joined_servers
         else 
             render json: ["Login first"]
         end

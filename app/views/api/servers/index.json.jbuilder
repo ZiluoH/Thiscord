@@ -1,5 +1,5 @@
-@joined_servers.each_with_index do |joined_server, idx|
-    json.set! idx+1 do
+@joined_servers.each do |joined_server|
+    json.set! joined_server.server_id do
         json.extract! joined_server, :server_id, :name, :admin_id
     end
 end
