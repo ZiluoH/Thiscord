@@ -1,5 +1,4 @@
 {
-  "homepage": "https://ziluoh.github.io/Thiscord/",
   "name": "discord_clone",
   "private": true,
   "dependencies": {
@@ -31,10 +30,7 @@
   },
   "scripts": {
     "start": "webpack -w --mode=development",
-    "postinstall": "webpack",
-    "build": "webpack --config webpack.config.js",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",
@@ -46,6 +42,7 @@
   "bugs": {
     "url": "https://github.com/ZiluoH/Thiscord/issues"
   },
+  "homepage": "https://github.com/ZiluoH/Thiscord#readme",
   "devDependencies": {
     "gh-pages": "^2.2.0"
   }
