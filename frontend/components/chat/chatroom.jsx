@@ -67,12 +67,10 @@ class ChatRoom extends React.Component {
                 {
                     received: data => {
                         switch (data.type) {
-                            case "message":                               
-                                // this.setState({
-                                //     messages: this.state.messages.concat(data.message)
-                                // });
-                                console.log(data);
-                                
+                            case "message":     
+                                this.setState({
+                                    messages: this.state.messages.concat(data.message)
+                                });                               
                                 break;
                             case "messages":
                                 this.setState({ messages: data.messages });
@@ -80,7 +78,7 @@ class ChatRoom extends React.Component {
                         }
                     },
                     speak: function (data) { return this.perform("speak", data); },
-                    load: function (data) { return this.perform("load", data); },
+                    load: function (data) { return this.perform("load", data); }
                 }
             );
         }
