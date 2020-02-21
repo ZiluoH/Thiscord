@@ -11,7 +11,7 @@ class Messages extends React.Component {
 
         return(
             <div>
-                {/* This is message List */}
+                This is message List
             </div>
         )
     }

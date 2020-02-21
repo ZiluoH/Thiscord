@@ -14,7 +14,7 @@ class MessageForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        App.cable.subscriptions.subscriptions[0].speak({ message: this.state.body,
+        this.props.subscription.speak({ message: this.state.body,
                                                         author_id: this.props.user.id,
                                                         channel_id: this.props.currentChannel.id});
         this.setState({ body: "" });
@@ -22,7 +22,7 @@ class MessageForm extends React.Component {
 
     render() {
         const inputPlaceholder = "Message  #" + this.props.currentChannel.name
-
+        
         return (
             <form onSubmit={this.handleSubmit.bind(this)} className="message-form">
                 <input
