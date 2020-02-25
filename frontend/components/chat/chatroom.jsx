@@ -95,21 +95,20 @@ class ChatRoom extends React.Component {
                                  (messageDate.getHours() % 12.00).toString() + ":" + (messageDate.getMinutes()).toString() + " AM";
                 }
             }
-
-            console.log(timestamp);
             
+
             if(message.channel_id == currentChannelId){
-                if(idx > 0 && this.state.messages[idx - 1].author_name == message.author_name ){
+                if (idx == 0 || this.state.messages[idx - 1].author_id != message.author_id || messageDate - new Date(this.state.messages[idx - 1].created_at) > 120000){
                     return (
                         <li key={idx} className="message">
+                            <span className="message-author">{message.author_name} <span className="message-time">{timestamp}</span></span>
+
                             <span className="message-body">{message.body}</span>
                         </li>
                     );
                 } else {
                     return (
                         <li key={idx} className="message">
-                            <span className="message-author">{message.author_name} <span className = "message-time">{timestamp}</span></span>
-                            
                             <span className="message-body">{message.body}</span>
                         </li>
                     );

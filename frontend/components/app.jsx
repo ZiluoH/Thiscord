@@ -7,14 +7,18 @@ import HomepageContainer from '../homepage/homepage_container';
 import ChannelsIndexContainer from '../components/channels/channels_index_container';
 import ServersListContainer from "./servers/servers_index_container";
 import Chatroomcontainer from "./chat/chatroom_container";
+import Info from "./info";
 
 const App = () => (
     <div className="app">
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
             <ProtectedRoute path="/" component={ServersListContainer} />
+            <ProtectedRoute exact path="/" component={Info} />
             <ProtectedRoute path="/channels/:serverId" component={ChannelsIndexContainer}/>
-        <ProtectedRoute path="/channels/:serverId/:channelId" component={Chatroomcontainer}/>
+            <ProtectedRoute exact path="/channels/:serverId" component={Info} />
+
+            <ProtectedRoute path="/channels/:serverId/:channelId" component={Chatroomcontainer}/>
     </div>
 );
 
