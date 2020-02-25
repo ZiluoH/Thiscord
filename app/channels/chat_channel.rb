@@ -27,7 +27,7 @@ class ChatChannel < ApplicationCable::Channel
     channel_id = params['channelId']
     message = Message.new(body: data['message'], author_id: data['author_id'], channel_id: data['channel_id'])
     if message.save
-      socket = { message: message, type: 'message' }
+      socket = { message: message, type: 'message', author_name: User.find_by(id: data['author_id']).username }
       ChatChannel.broadcast_to(channel_id, socket)
     end
   end
@@ -36,7 +36,7 @@ class ChatChannel < ApplicationCable::Channel
     channel_id = data['channelId']
     channel = Channel.find_by(id: channel_id)
 
-    messages = channel.messages.order(created_at: :asc)
+    messages = channel.messages.select('messages.*, users.username as author_name').joins(:author).order(created_at: :asc)
     socket = { messages: messages, type: 'messages'}
     ChatChannel.broadcast_to(channel_id, socket)
   end

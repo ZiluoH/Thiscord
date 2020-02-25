@@ -19,7 +19,10 @@ class Api::UsersController < ApplicationController
         end
     end
 
-
+    def index
+        @users = User.all
+        render "api/users/index"
+    end
     private
 
     def user_params

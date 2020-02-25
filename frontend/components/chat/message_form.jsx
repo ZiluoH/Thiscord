@@ -15,8 +15,8 @@ class MessageForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.subscription.speak({ message: this.state.body,
-                                                        author_id: this.props.user.id,
-                                                        channel_id: this.props.currentChannel.id});
+                                        author_id: this.props.user.id,
+                                        channel_id: this.props.currentChannel.id});
         this.setState({ body: "" });
     }
 

@@ -18,6 +18,7 @@ body, html, #root, .app, .user-homepage {
     height: 100%;
     margin: 0;
     font-family: 'Roboto', sans-serif;
+    overflow: hidden;
 }
 
 .app{
@@ -582,7 +583,7 @@ h6,
     margin-left: 30px;
     box-sizing: border-box;
     height: 95px;
-    width: 80%;
+    width: 42rem;
 }
 
 .message-form-input{
@@ -600,12 +601,29 @@ h6,
 }
 
 .message-list{
-    padding: 50px 40px;
+    position: fixed;
+    width: inherit;
+    overflow: auto;
+    top: 85px;
+    bottom: 125px;
+    padding: 0 40px;
 }
 
 .message{
     list-style: none;
     color: #fff;
+    padding: 4px 0;
+}
+
+.message-author{
+    display: block;
     font-size: 20px;
-    padding-top: 10px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.message-body{
+    display: block;
+    font-weight: 300;
+    font-size: 18px;
 }

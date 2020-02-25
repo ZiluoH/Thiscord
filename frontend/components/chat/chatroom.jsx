@@ -5,47 +5,26 @@ class ChatRoom extends React.Component {
     constructor(props) {
         super(props);
         this.state = { messages: [] };
-        this.bottom = React.createRef();
         this.subscribe = this.subscribe.bind(this);
+        this.bottom = React.createRef();
     }
 
     componentDidMount() {
-        // App.cable.subscriptions.create(
-        //     { channel: this.props.match.params.channelId },
-        //     {
-        //         received: data => {
-        //             switch (data.type) {
-        //                 case "message":
-        //                     this.setState({
-        //                         messages: this.state.messages.concat(data.message)
-        //                     });
-        //                     break;
-        //                 case "messages":
-        //                     this.setState({ messages: data.messages });
-        //                     break;
-        //             }
-        //         },
-        //         speak: function (data) { return this.perform("speak", data) },
-        //         load: function () { return this.perform("load") }
-        //     }
-        // );
         const channelId = this.props.match.params.channelId;
         this.subscribe(channelId);
-        // console.log("chatroom: " + channelId);
-        // console.log(this.props);
-        
+        if (this.bottom.current != null) {
+            this.bottom.current.scrollIntoView();
+        }
     }
 
-    // loadChat(e) {
-    //     e.preventDefault();
-    //     App.cable.subscriptions.subscriptions[0].load();
-    // }
-
     componentDidUpdate(prevProps) {
-        // this.bottom.current.scrollIntoView();
         const channelId = this.props.match.params.channelId;
         if(prevProps.match.params.channelId !== channelId){
             this.subscribe(channelId);
+        }
+       
+        if (this.bottom.current != null) {
+            this.bottom.current.scrollIntoView();
         }
     }
 
@@ -61,16 +40,16 @@ class ChatRoom extends React.Component {
         if (this.subscription) {
             this.subscription.load({ channelId });
         } else {
-            const that = this;
             this.subscription = App.cable.subscriptions.create(
                 { channel: "ChatChannel", channelId },
                 {
                     received: data => {
                         switch (data.type) {
                             case "message":     
+                                data.message.author_name = data.author_name         
                                 this.setState({
                                     messages: this.state.messages.concat(data.message)
-                                });                               
+                                });                                   
                                 break;
                             case "messages":
                                 this.setState({ messages: data.messages });
@@ -94,12 +73,48 @@ class ChatRoom extends React.Component {
         
 
         const messageList = this.state.messages.map((message, idx) => {
-            return (
-                <li key={idx} className="message">
-                    {message.body}
-                    <div ref={this.bottom} />
-                </li>
-            );
+            let timestamp;
+            let messageDate = new Date(message.created_at);
+            let nowDate = new Date();
+            if(messageDate.toDateString() == nowDate.toDateString()){
+                if(messageDate.getHours() > 12){
+                    timestamp = "Today at " + (messageDate.getHours() % 12.00).toString() + ":" + (messageDate.getMinutes()).toString() + " PM";
+                }else{
+                    timestamp = "Today at " + (messageDate.getHours() % 12.00).toString() + ":" + (messageDate.getMinutes()).toString() + " AM";
+                }
+            } else {
+                if (messageDate.getHours() > 12) {
+                    timestamp = (messageDate.getMonth() + 1).toString() + "/" + 
+                                 messageDate.getDay().toString() + "/" + 
+                                 messageDate.getFullYear().toString() + " at " + 
+                                (messageDate.getHours() % 12.00).toString() + ":" + (messageDate.getMinutes()).toString() + " PM";
+                } else {
+                    timestamp = (messageDate.getMonth() + 1).toString() + "/" +
+                                 messageDate.getDay().toString() + "/" +
+                                 messageDate.getFullYear().toString() + " at " + 
+                                 (messageDate.getHours() % 12.00).toString() + ":" + (messageDate.getMinutes()).toString() + " AM";
+                }
+            }
+
+            console.log(timestamp);
+            
+            if(message.channel_id == currentChannelId){
+                if(idx > 0 && this.state.messages[idx - 1].author_name == message.author_name ){
+                    return (
+                        <li key={idx} className="message">
+                            <span className="message-body">{message.body}</span>
+                        </li>
+                    );
+                } else {
+                    return (
+                        <li key={idx} className="message">
+                            <span className="message-author">{message.author_name} <span className = "message-time">{timestamp}</span></span>
+                            
+                            <span className="message-body">{message.body}</span>
+                        </li>
+                    );
+                }
+            }
         });
 
         return (
@@ -107,7 +122,10 @@ class ChatRoom extends React.Component {
                 <div className="chatroom-title"> 
                     #   {channels[currentChannelId].name} 
                 </div>
-                <div className="message-list">{messageList}</div>
+                <div className="message-list">
+                    {messageList}
+                    <div ref={this.bottom} />
+                </div>
                 <MessageForm user={users} 
                              currentChannel={channels[currentChannelId]} 
                              subscription = {this.subscription}/>

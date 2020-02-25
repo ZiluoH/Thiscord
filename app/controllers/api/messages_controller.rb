@@ -12,7 +12,7 @@ class Api::MessagesController < ApplicationController
     def index
         @messages = Message.all.where("channel_id = ?", params[:channel_id])
         if @messages
-            render "api/messages/index"
+            render json: @messages
         else
             render json: ["no msg found"], status: 422
         end
