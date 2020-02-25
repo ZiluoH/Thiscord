@@ -635,3 +635,65 @@ h6,
     user-select: none;
     margin-left: 5px;
 }
+
+/* ---------------- welcome message ---------------- */
+.info{
+    margin: 30px auto 0;
+    padding: 16px 16px 0;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 0 auto;
+    color: #fff;
+    user-select: none;
+}
+
+.info h1{
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+.info-item{
+    display: flex;
+    flex-direction: row;
+}
+
+.info p{
+    display: inline-block;
+    width: 360px;
+    margin-left: 15px;
+    line-height: 28px;
+    font-weight: 300;
+}
+
+.info a{
+    color: #00b0f4;
+    text-decoration: none;
+}
+
+.info a:hover{
+    text-decoration: underline;
+}
+
+.info-icon{
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    margin-top: 22px;
+}
+
+.exclamation-icon{
+    background-image: url(https://discordapp.com/assets/7616be62f9b90270b5a2e1fe9d2ece4f.svg);
+}
+
+.app-icon{
+    background-image: url(https://discordapp.com/assets/db7900a7a191ecf1949f15dd20dce2b2.svg);
+}
+
+.share-icon{
+    background-image: url(https://discordapp.com/assets/07778297eb1e1e3d9bd3cd302920d5fb.svg);
+}
+
+.mobile-icon{
+    background-image: url(https://discordapp.com/assets/83d501f2b7dd2987302ce29b321f4494.svg);
+}
