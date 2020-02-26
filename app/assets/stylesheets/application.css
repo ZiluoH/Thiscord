@@ -411,15 +411,29 @@ h6,
 }
 
 .current-server-name{
-    cursor: pointer;
+    user-select: none;
     height: 40px;
     font-weight: 600;
     color: #fff;
     font-size: 18px;
     border-bottom: 0.8px solid black;
-    padding-top: 15px;
-    padding-left: 16px;
+    padding: 15px 17px 0 16px;
     text-transform: uppercase;
+}
+
+.remove-server{
+    float: right;
+}
+
+.remove-server .fa-times{
+    color: #72767d;
+    font-size: 14px;
+}
+
+.remove-server .tooltiptext{
+    top: -15px;
+    left: 25px;
+    color: red;
 }
 
 .channels-list-header{

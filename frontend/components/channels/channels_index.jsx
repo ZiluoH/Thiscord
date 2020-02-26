@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import CreateChannelFormContainer from './create_channel_form_container';
 import ReactModal from 'react-modal';
 
@@ -10,9 +10,9 @@ class ChannelsIndex extends React.Component {
         this.state = {
             showModal: false
         };
-        // this.channelItem = this.channelItem.bind(this);
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
+        this.removeServer = this.removeServer.bind(this);
     }
     
     componentDidMount(){
@@ -35,10 +35,13 @@ class ChannelsIndex extends React.Component {
     handleCloseModal() {
         this.setState({ showModal: false });
     }
+
+    removeServer(){
+        this.props.removeServer(this.props.match.params.serverId);
+    }
     
     render(){
         const { users, servers, channels } = this.props.channels.entities
-        
         let channelItem;
         let currentServerName;        
         
@@ -53,10 +56,18 @@ class ChannelsIndex extends React.Component {
             );  
 
             currentServerName = (
-                <div className = "current-server-name">{servers[this.props.match.params.serverId].name}</div>
+                <div className = "current-server-name">{servers[this.props.match.params.serverId].name}
+                    <span onClick={this.removeServer} className="remove-server tooltip">
+                        <Link to="/">
+                            <i className="fas fa-times"></i>
+                            <span className="tooltiptext">
+                               {this.props.channels.session.id == this.props.channels.entities.servers[this.props.match.params.serverId].admin_id ? "DELETE SERVER" : "LEAVE SERVER"}
+                            </span>
+                        </Link>
+                    </span>
+                </div>
             )
-        }
-        
+        }           
         
         return(
             <div className="channels-section">
@@ -87,8 +98,6 @@ class ChannelsIndex extends React.Component {
             </div>
         )
     }
-
-
 }
 
 export default ChannelsIndex;

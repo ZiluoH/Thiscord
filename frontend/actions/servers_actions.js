@@ -6,7 +6,7 @@ export const RECEIVE_SERVER_MEMBERSHIP = 'RECEIVE_SERVER_MEMBERSHIP';
 export const RECEIVE_SERVER_ERROR = 'RECEIVE_SERVER_ERROR';
 export const RECEIVE_SERVER_MEMBERSHIP_ERROR = 'RECEIVE_SERVER_MEMBERSHIP_ERROR';
 export const CLEAR_SERVER_ERROR = 'CLEAR_SERVER_ERROR';
-
+export const REMOVE_SERVER = 'REMOVE_SERVER';
 
 
 const receiveServers = servers => ({
@@ -38,6 +38,11 @@ export const clearServerError = () => ({
     type: CLEAR_SERVER_ERROR
 })
 
+export const removeServer = (serverId) =>({
+    type: REMOVE_SERVER,
+    serverId
+})
+
 export const fetchServers = () => dispatch => (
     ServersAPIUtil.fetchServers().then(servers => (
         dispatch(receiveServers(servers))
@@ -58,3 +63,7 @@ export const createServerMembership = server_membership => dispatch => (
         )
 );
 
+export const deleteServer = serverId => dispatch => (
+    ServersAPIUtil.deleteServer(serverId)
+        .then(()=> dispatch(removeServer(serverId)))
+)

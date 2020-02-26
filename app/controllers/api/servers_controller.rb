@@ -36,8 +36,6 @@ class Api::ServersController < ApplicationController
     end
 
 
-
-
     private
     def server_params
         params.require(:server).permit(:name, :admin_id);
