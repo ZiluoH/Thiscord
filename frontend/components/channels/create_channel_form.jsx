@@ -15,6 +15,7 @@ class CreateChannelForm extends React.Component {
         const channel = Object.assign({}, this.state);        
         this.props.createChannel(channel);
         this.state.name = '';
+        this.props.closeModal();
     }
 
     update(field) {

@@ -26,7 +26,14 @@ class Api::ServersController < ApplicationController
         end
     end
 
-
+    def destroy
+        @server = Server.find_by(id: params[:id])
+        if current_user.id == @server.admin_id
+            @server.destroy
+        else
+            current_user.server_memberships.find_by(server_id: @server.id).destroy
+        end
+    end
 
 
 

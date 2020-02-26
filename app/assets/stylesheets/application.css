@@ -262,7 +262,7 @@ h6,
 /* ----------------- server modal -----------------*/
 .server-modal{
     position: relative;
-    margin: 10% auto;
+    margin: 20% auto;
     width: 540px;
     height: 420px;
     border-radius: 5px;
@@ -329,7 +329,7 @@ h6,
     box-sizing: border-box;
     display: inline-block;
     border: 1px solid rgba(0, 0, 0, .2);
-    border-radius: 3px;
+    border-radius: 4px;
     background: #ffffffbf;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width:190px;
@@ -466,7 +466,7 @@ h6,
 
 .channel-modal{
     position: relative;
-    margin: 10% auto;
+    margin: 22% auto;
     width: 540px;
     height: 420px;
     border-radius: 5px;
@@ -490,6 +490,7 @@ h6,
     width: 400px;
     height: 190px;
     padding: 10px 20px 40px 20px;
+    border-radius: 5px;
 }
 
 .create-channel-form-title{
@@ -590,7 +591,7 @@ h6,
     width: 80%;
     font-size: 20px;
     padding: 12px 12px 12px 29px;
-    border-radius: 15px;
+    border-radius: 7px;
     border: none;
     color: #fff;
     background-color: rgba(0, 0, 0, .1);

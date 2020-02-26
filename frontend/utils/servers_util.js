@@ -20,3 +20,10 @@ export const joinServer = server_membership => (
         data: { server_membership }
     })
 )
+
+export const deleteServer = id => (
+    $.ajax({
+        method: 'DELETE',
+        url: `/api/servers/${id}`
+    })
+)

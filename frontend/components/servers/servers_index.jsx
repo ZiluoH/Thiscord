@@ -10,7 +10,8 @@ class ServersIndex extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            showModal: false
+            showModal: false,
+            currentServer: 0
         };
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this); 
@@ -38,7 +39,7 @@ class ServersIndex extends React.Component {
     
     render(){
         const{users, servers} = this.props.servers.entities
-    
+        
         
         return(
            
