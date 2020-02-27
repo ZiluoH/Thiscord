@@ -441,7 +441,7 @@ h6,
     text-transform: uppercase;
     font-size: 13px;
     user-select: none;
-    padding:0 17px;
+    padding:3px 17px;
 }
 
 .channels-list-header i{
@@ -476,6 +476,10 @@ h6,
 
 .channels-list{
     padding: 0;
+}
+
+.remove-channel{
+    margin-left: 98px;
 }
 
 .channel-modal{

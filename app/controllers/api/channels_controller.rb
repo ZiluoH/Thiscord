@@ -20,7 +20,10 @@ class Api::ChannelsController < ApplicationController
     end
 
   def destroy
-
+        @channel = Channel.find_by(id: params[:id])
+        if @channel.server.admin_id == current_user.id
+            @channel.destroy
+        end
   end
 
 

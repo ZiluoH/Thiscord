@@ -2,6 +2,7 @@ import * as ChannelsAPIUtil from '../utils/channels_util';
 
 export const RECEIVE_CHANNELS = 'RECEIVE_CHANNELS';
 export const RECEIVE_CHANNEL = 'RECEIVE_CHANNEL';
+export const REMOVE_CHANNEL = 'REMOVE_CHANNEL';
 
 const receiveChannels = channels => ({
     type: RECEIVE_CHANNELS,
@@ -13,6 +14,11 @@ export const receiveChannel = channel => ({
     channel
 });
 
+export const remvoeChannel = (serverId, channelId) => ({
+    type: REMOVE_CHANNEL,
+    serverId,
+    channelId
+})
 
 
 export const fetchChannels = serverId => dispatch => (
@@ -25,4 +31,9 @@ export const createChannel = (channel) => dispatch => (
     ChannelsAPIUtil.createChannel(channel).then(channel => (
         dispatch(receiveChannel(channel))
     ))
+);
+
+export const deleteChannel = (serverId, channelId) => dispatch => (
+    ChannelsAPIUtil.deleteChannel(serverId, channelId)
+        .then(() => dispatch(remvoeChannel(serverId, channelId)))
 );
