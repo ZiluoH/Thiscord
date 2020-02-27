@@ -70,7 +70,6 @@ class ChatRoom extends React.Component {
         if (channels[currentChannelId] === undefined) {
             return null;
         }
-        
 
         const messageList = this.state.messages.map((message, idx) => {
             let timestamp;
@@ -95,7 +94,6 @@ class ChatRoom extends React.Component {
                                  (messageDate.getHours() % 12.00).toString() + ":" + (messageDate.getMinutes()).toString() + " AM";
                 }
             }
-            
 
             if(message.channel_id == currentChannelId){
                 if (idx == 0 || this.state.messages[idx - 1].author_id != message.author_id || messageDate - new Date(this.state.messages[idx - 1].created_at) > 120000){
